@@ -11,8 +11,8 @@ if not os.path.exists('images'):
 st.title("Images Comparison using SNN")
 st.write("Upload two images")
 
-uploaded_file1 = st.file_uploader("Choose the first image", type=['jpg', 'png'], key="file_uploader1")
-uploaded_file2 = st.file_uploader("Choose the second image", type=['jpg', 'png'], key="file_uploader2")  
+uploaded_file1 = st.file_uploader("Choose the first image", type=['jpg', 'png', 'bmp'], key="file_uploader1")
+uploaded_file2 = st.file_uploader("Choose the second image", type=['jpg', 'png', 'bmp'], key="file_uploader2")  
 
 if st.button("Compare"):
     if uploaded_file1 and uploaded_file2:
@@ -24,8 +24,8 @@ if st.button("Compare"):
         with open(img2_path, "wb") as f:
             f.write(uploaded_file2.getbuffer())
 
-        similarity_score = compare_images(img1_path, img2_path)
+        similarity_score = compare_images(img1_path, img2_path).item()
         
-        st.success(f"Similarity Score: {similarity_score:.2f}%")
+        st.success(f"Similarity Score: {similarity_score:.2f}")
     else:
         st.error("Please upload two images.")
