@@ -11,8 +11,8 @@ if not os.path.exists('images'):
 st.title("Images Comparison using SNN")
 st.write("Upload two images")
 
-uploaded_file1 = st.file_uploader("Choose the first image", type=['jpg', 'png'], key="file_uploader1")
-uploaded_file2 = st.file_uploader("Choose the second image", type=['jpg', 'png'], key="file_uploader2")  
+uploaded_file1 = st.file_uploader("Choose the first image", type=['jpg', 'png', 'bmp'], key="file_uploader1")
+uploaded_file2 = st.file_uploader("Choose the second image", type=['jpg', 'png', 'bmp'], key="file_uploader2")  
 
 if st.button("Compare"):
     if uploaded_file1 and uploaded_file2:
